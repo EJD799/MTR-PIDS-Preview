@@ -35,7 +35,7 @@ const PIDSUtil = {
     }
 }
 
-const TextUtils = {
+const TextUtil = {
     getNonExtraParts: function(text) {
         return text.split("|")[0];
     },

@@ -121,7 +121,7 @@ class TextObj {
     draw(ctx) {
         pidsCtx.font = `${54 * this.textScale}px sans-serif`;
         pidsCtx.fillStyle = this.textColor;
-        pidsCtx.fillText(this.textContent, this.textPos[0] * 6, this.textPos[1] * 6);
+        pidsCtx.fillText(this.textContent, this.textPos[0] * 6, this.textPos[1] * 6 + 40);
     }
 }
 const Text = {
