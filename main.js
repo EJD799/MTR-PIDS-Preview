@@ -78,14 +78,13 @@ const pidsObj = {
 };
 
 function renderFrame() {
-    console.log("loop tick");
     if (renderingActive) {
-        console.log("rendering");
-
         // Clear the entire canvas
         pidsCtx.clearRect(0, 0, pidsCanvas.width, pidsCanvas.height);
 
-        render(null, null, pidsObj);
+        try {
+            render(null, null, pidsObj);
+        } catch(e) {}
     }
     setTimeout(renderFrame, 33);
 }
