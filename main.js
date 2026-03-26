@@ -93,10 +93,14 @@ renderFrame();
 
 class TextObj {
     constructor() {
-        this.textContent = null;
-        this.textColor = null;
-        this.textPos = null;
-        this.textScale = null;
+        this.textContent = "";
+        this.textColor = 0xFFFFFF;
+        this.textPos = [0, 0];
+        this.textScale = 1;
+        this.isBold = false;
+        this.isItalic = false;
+        this.isShadowed = false;
+        this.textAlign = "left";
     }
     text(content) {
         this.textContent = content;
@@ -118,10 +122,70 @@ class TextObj {
         this.textScale = value;
         return this;
     }
+    size(x, y) {
+        return this;
+    }
+    leftAlign() {
+        this.textAlign = "left";
+        return this;
+    }
+    rightAlign() {
+        this.textAlign = "right";
+        return this;
+    }
+    centerAlign() {
+        this.textAlign = "center";
+        return this;
+    }
+    bold() {
+        this.isBold = true;
+        return this;
+    }
+    italic() {
+        this.isItalic = true;
+        return this;
+    }
+    shadowed() {
+        this.isShadowed = true;
+        return this;
+    }
+    font(font) {
+        return this;
+    }
+    fontMC() {
+        return this;
+    }
+    marquee() {
+        return this;
+    }
+    wrapText() {
+        return this;
+    }
+    scaleXY() {
+        return this;
+    }
+    stretchXY() {
+        return this;
+    }
+
     draw(ctx) {
-        pidsCtx.font = `${54 * this.textScale}px sans-serif`;
+        let fontPrefix = "";
+        if (this.isBold) {
+            fontPrefix += "bold ";
+        }
+        if (this.isItalic) {
+            fontPrefix += "italic ";
+        }
+        if (this.isShadowed) {
+            pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
+            pidsCtx.textAlign = this.textAlign;
+            pidsCtx.fillStyle = 0x333333;
+            pidsCtx.fillText(this.textContent, this.textPos[0] * 6 + 5, this.textPos[1] * 6 + 30 + 5);
+        }
+        pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
+        pidsCtx.textAlign = this.textAlign;
         pidsCtx.fillStyle = this.textColor;
-        pidsCtx.fillText(this.textContent, this.textPos[0] * 6, this.textPos[1] * 6 + 40);
+        pidsCtx.fillText(this.textContent, this.textPos[0] * 6, this.textPos[1] * 6 + 30);
     }
 }
 const Text = {
