@@ -26,10 +26,12 @@ let pidsData = {
     rows: 4,
     customMessages: ["", "", "", ""],
     hiddenArrivals: [false, false, false, false],
-    hiddenPlatforms: false,
+    platformNumberHidden: false,
     position: [0, 0, 0],
     keyBlock: false,
-    
+    arrivals: [
+
+    ]
 };
 
 const pidsObj = {
@@ -39,9 +41,40 @@ const pidsObj = {
                 return {
 
                 };
+            },
+            mixedCarLength: function() {
+                return;
+            },
+            platforms: function() {
+                return;
             }
         };
-    }
+    },
+    station: function() {
+
+    },
+    isKeyBlock: function() {
+        return pidsData.keyBlock;
+    },
+    blockPos: function() {
+        return {
+            x: pidsData.position[0],
+            y: pidsData.position[1],
+            z: pidsData.position[2]
+        };
+    },
+    isPlatformNumberHidden: function() {
+        return pidsData.platformNumberHidden;
+    },
+    isRowHidden: function(row) {
+        return pidsData.hiddenArrivals[row];
+    },
+    getCustomMessage: function(row) {
+        return pidsData.customMessages[row];
+    },
+    width: pidsData.width,
+    height: pidsData.height,
+    rows: pidsData.rows,
 };
 
 function renderFrame() {
@@ -88,7 +121,7 @@ class TextObj {
     draw(ctx) {
         pidsCtx.font = `${54 * this.textScale}px sans-serif`;
         pidsCtx.fillStyle = this.textColor;
-        pidsCtx.fillText(this.textContent, this.textPos[0], this.textPos[1]);
+        pidsCtx.fillText(this.textContent, this.textPos[0] * 6, this.textPos[1] * 6);
     }
 }
 const Text = {
