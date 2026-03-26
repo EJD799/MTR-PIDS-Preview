@@ -1,3 +1,5 @@
+const pidsCtx = pidsCanvas.getContext('2d');
+
 function include(url) {
     const script = document.createElement('script'); // 1. Create the script element
     script.src = url; // 2. Set the src attribute to the file path
@@ -19,8 +21,6 @@ print = function(t) {
 
 function renderFrame() {
     if (renderingActive) {
-        const pidsCtx = pidsCanvas.getContext('2d');
-
         // Clear the entire canvas
         pidsCtx.clearRect(0, 0, pidsCanvas.width, pidsCanvas.height);
 
@@ -32,3 +32,38 @@ function renderFrame() {
 let renderingActive = false;
 
 renderFrame();
+
+class TextObj {
+    constructor() {
+        this.textContent = null;
+        this.textColor = null;
+        this.textPos = null;
+        this.textScale = null;
+    }
+    text(content) {
+        this.textContent = content;
+        return this;
+    }
+    color(color) {
+        this.textColor = color;
+        return this;
+    }
+    pos(x, y) {
+        this.textPos = [x, y];
+        return this;
+    }
+    scale(value) {
+        this.textScale = value;
+        return this;
+    }
+    draw(ctx) {
+        pidsCtx.font = `${12 * this.textScale}px sans-serif`;
+        pidsCtx.fillStyle = this.textColor;
+        pidsCtx.fillText(this.textContent, this.textPos[0], this.textPos[1]);
+    }
+}
+const Text = {
+    create: function() {
+        return new TextObj();
+    }
+};
