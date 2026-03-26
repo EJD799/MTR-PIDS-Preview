@@ -12,3 +12,18 @@ const Resources = {
         return name.replace("jsblock:", "");
     }
 };
+
+print = function(t) {
+    console.log(t);
+};
+
+function renderFrame() {
+    if (renderingActive) {
+        render();
+    }
+    setTimeout(renderFrame, 33);
+}
+
+let renderingActive = false;
+
+renderFrame();
