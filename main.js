@@ -19,6 +19,11 @@ print = function(t) {
 
 function renderFrame() {
     if (renderingActive) {
+        const pidsCtx = pidsCanvas.getContext('2d');
+
+        // Clear the entire canvas
+        pidsCtx.clearRect(0, 0, pidsCanvas.width, pidsCanvas.height);
+
         render();
     }
     setTimeout(renderFrame, 33);
