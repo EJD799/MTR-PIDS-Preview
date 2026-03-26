@@ -78,7 +78,10 @@ const pidsObj = {
 };
 
 function renderFrame() {
+    console.log("loop tick");
     if (renderingActive) {
+        console.log("rendering");
+
         // Clear the entire canvas
         pidsCtx.clearRect(0, 0, pidsCanvas.width, pidsCanvas.height);
 
@@ -179,8 +182,8 @@ class TextObj {
         if (this.isShadowed) {
             pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
             pidsCtx.textAlign = this.textAlign;
-            pidsCtx.fillStyle = 0x333333;
-            pidsCtx.fillText(this.textContent, this.textPos[0] * 6 + 5, this.textPos[1] * 6 + 30 + 5);
+            pidsCtx.fillStyle = 0x111111;
+            pidsCtx.fillText(this.textContent, this.textPos[0] * 6 + 2, this.textPos[1] * 6 + 30 + 2);
         }
         pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
         pidsCtx.textAlign = this.textAlign;
