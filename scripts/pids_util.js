@@ -34,3 +34,21 @@ const PIDSUtil = {
         return `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
     }
 }
+
+const TextUtils = {
+    getNonExtraParts: function(text) {
+        return text.split("|")[0];
+    },
+    getNonCjkParts: function(text) {
+        if (text.includes("|")) {
+            return text.split("|")[1];
+        }
+        return text;
+    },
+    getCjkParts: function(text) {
+        if (text.includes("|")) {
+            return text.split("|")[0];
+        }
+        return text;
+    }
+}

@@ -19,12 +19,37 @@ print = function(t) {
     console.log(t);
 };
 
+let pidsData = {
+    type: "rv_pids",
+    width: 1024,
+    height: 512,
+    rows: 4,
+    customMessages: ["", "", "", ""],
+    hiddenArrivals: [false, false, false, false],
+    hiddenPlatforms: false,
+    position: [0, 0, 0],
+    keyBlock: false,
+    
+};
+
+const pidsObj = {
+    arrivals: function() {
+        return {
+            get: function(number) {
+                return {
+
+                };
+            }
+        };
+    }
+};
+
 function renderFrame() {
     if (renderingActive) {
         // Clear the entire canvas
         pidsCtx.clearRect(0, 0, pidsCanvas.width, pidsCanvas.height);
 
-        render();
+        render(null, null, pidsObj);
     }
     setTimeout(renderFrame, 33);
 }
