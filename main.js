@@ -45,7 +45,11 @@ class TextObj {
         return this;
     }
     color(color) {
-        this.textColor = color;
+        if (typeof color === "number") {
+            this.textColor = "#" + color.toString(16).padStart(6, "0");
+        } else {
+            this.textColor = color;
+        }
         return this;
     }
     pos(x, y) {
