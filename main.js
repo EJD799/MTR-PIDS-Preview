@@ -12,6 +12,13 @@ function include(url) {
 const Resources = {
     id: function(name) {
         return name.replace("jsblock:", "");
+    },
+    getAddonVersion: function(addon) {
+        if (addon == "jcm") {
+            return "2.1.2";
+        } else {
+            return null;
+        }
     }
 };
 
@@ -30,7 +37,30 @@ let pidsData = {
     position: [0, 0, 0],
     keyBlock: false,
     arrivals: [
-
+        {
+            destination: "Destination",
+            arrivalTime: Date.now(),
+            departureTime: Date.now() + 15000,
+            realtime: true,
+            terminating: false,
+            route: {
+                id: "",
+                name: "Route Name",
+                number: "123",
+                color: 0xFF0000,
+                circularState: false
+            },
+            platform: {
+                id: "",
+                name: "1"
+            },
+            cars: [
+                "sp1900_cab_1",
+                "sp1900_trailer",
+                "sp1900_trailer",
+                "sp1900_cab_2"
+            ]
+        }
     ]
 };
 
