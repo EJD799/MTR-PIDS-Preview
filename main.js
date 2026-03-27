@@ -38,7 +38,7 @@ let pidsData = {
     keyBlock: false,
     arrivals: [
         {
-            destination: "Destination",
+            destination: "Station 1",
             arrivalTime: Date.now(),
             departureTime: Date.now() + 15000,
             realtime: true,
@@ -51,7 +51,127 @@ let pidsData = {
                 circularState: false
             },
             platform: {
+                id: "1",
+                name: "1"
+            },
+            cars: [
+                "sp1900_cab_1",
+                "sp1900_trailer",
+                "sp1900_trailer",
+                "sp1900_cab_2"
+            ]
+        },
+        {
+            destination: "Station 2",
+            arrivalTime: Date.now() + 30000,
+            departureTime: Date.now() + 45000,
+            realtime: true,
+            terminating: false,
+            route: {
                 id: "",
+                name: "Route Name",
+                number: "124",
+                color: 0x0000FF,
+                circularState: false
+            },
+            platform: {
+                id: "1",
+                name: "1"
+            },
+            cars: [
+                "sp1900_cab_1",
+                "sp1900_trailer",
+                "sp1900_trailer",
+                "sp1900_cab_2"
+            ]
+        },
+        {
+            destination: "Station 1",
+            arrivalTime: Date.now() + 60000,
+            departureTime: Date.now() + 75000,
+            realtime: true,
+            terminating: false,
+            route: {
+                id: "",
+                name: "Route Name",
+                number: "123",
+                color: 0xFF0000,
+                circularState: false
+            },
+            platform: {
+                id: "1",
+                name: "1"
+            },
+            cars: [
+                "sp1900_cab_1",
+                "sp1900_trailer",
+                "sp1900_trailer",
+                "sp1900_cab_2"
+            ]
+        },
+        {
+            destination: "Station 2",
+            arrivalTime: Date.now() + 90000,
+            departureTime: Date.now() + 105000,
+            realtime: true,
+            terminating: false,
+            route: {
+                id: "",
+                name: "Route Name",
+                number: "124",
+                color: 0x0000FF,
+                circularState: false
+            },
+            platform: {
+                id: "1",
+                name: "1"
+            },
+            cars: [
+                "sp1900_cab_1",
+                "sp1900_trailer",
+                "sp1900_trailer",
+                "sp1900_cab_2"
+            ]
+        },
+        {
+            destination: "Station 1",
+            arrivalTime: Date.now() + 120000,
+            departureTime: Date.now() + 135000,
+            realtime: false,
+            terminating: false,
+            route: {
+                id: "",
+                name: "Route Name",
+                number: "123",
+                color: 0xFF0000,
+                circularState: false
+            },
+            platform: {
+                id: "1",
+                name: "1"
+            },
+            cars: [
+                "sp1900_cab_1",
+                "sp1900_trailer",
+                "sp1900_trailer",
+                "sp1900_cab_2"
+            ]
+        },
+        {
+            destination: "Station 2",
+            arrivalTime: Date.now() + 150000,
+            departureTime: Date.now() + 165000,
+            realtime: false,
+            terminating: false,
+            route: {
+                id: "",
+                name: "Route Name",
+                number: "124",
+                color: 0x0000FF,
+                circularState: false
+            },
+            platform: {
+                id: "1",
                 name: "1"
             },
             cars: [
@@ -69,7 +189,67 @@ const pidsObj = {
         return {
             get: function(number) {
                 return {
+                    destination: function() {
+                        return pidsData.arrivals[number].destination;
+                    },
+                    arrivalTime: function() {
+                        return pidsData.arrivals[number].arrivalTime;
+                    },
+                    departureTime: function() {
+                        return pidsData.arrivals[number].departureTime;
+                    },
+                    deviation: function() {
+                        return null;
+                    },
+                    realtime: function() {
+                        return pidsData.arrivals[number].realtime;
+                    },
+                    departureIndex: function() {
+                        return 0;
+                    },
+                    terminating: function() {
+                        return pidsData.arrivals[number].terminating;
+                    },
+                    route: function() {
+                        
+                    },
+                    routeId: function() {
+                        return pidsData.arrivals[number].route.id;
+                    },
+                    routeName: function() {
+                        return pidsData.arrivals[number].route.name;
+                    },
+                    routeNumber: function() {
+                        return pidsData.arrivals[number].route.number;
+                    },
+                    routeColor: function() {
+                        return pidsData.arrivals[number].route.color;
+                    },
+                    circularState: function() {
+                        return pidsData.arrivals[number].route.circularState;
+                    },
+                    platform: function() {
 
+                    },
+                    platformId: function() {
+                        return pidsData.arrivals[number].platform.id;
+                    },
+                    platformName: function() {
+                        return pidsData.arrivals[number].platform.name;
+                    },
+                    carCount: function() {
+                        return pidsData.arrivals[number].cars.length;
+                    },
+                    cars: function() {
+                        return pidsData.arrivals[number].cars.map(n => ({
+                            getVehicleId: function() {
+                                return n;
+                            },
+                            getOccupancy: function() {
+                                return 0;
+                            }
+                        }));
+                    }
                 };
             },
             mixedCarLength: function() {
