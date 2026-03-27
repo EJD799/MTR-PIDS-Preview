@@ -441,15 +441,15 @@ class TextObj {
             fontPrefix += "italic ";
         }
         if (this.isShadowed) {
-            pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
+            pidsCtx.font = `${fontPrefix}${9 * this.textScale}px sans-serif`;
             pidsCtx.textAlign = this.textAlign;
             pidsCtx.fillStyle = 0x111111;
-            pidsCtx.fillText(this.textContent, this.textPos[0] * 6 + 22, this.textPos[1] * 7 + 72);
+            pidsCtx.fillText(this.textContent, this.textPos[0] + 22, this.textPos[1] + 72);
         }
-        pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
+        pidsCtx.font = `${fontPrefix}${9 * this.textScale}px sans-serif`;
         pidsCtx.textAlign = this.textAlign;
         pidsCtx.fillStyle = this.textColor;
-        pidsCtx.fillText(this.textContent, this.textPos[0] * 6 + 20, this.textPos[1] * 7 + 70);
+        pidsCtx.fillText(this.textContent, this.textPos[0] + 20, this.textPos[1] + 70);
     }
 }
 const Text = {
