@@ -50,5 +50,8 @@ const TextUtil = {
             return text.split("|")[0];
         }
         return text;
+    },
+    cycleString: function(text) {
+        return getWrappedItem(text.split("|"), textCycle);
     }
 }

@@ -449,7 +449,7 @@ class TextObj {
         pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
         pidsCtx.textAlign = this.textAlign;
         pidsCtx.fillStyle = this.textColor;
-        pidsCtx.fillText(this.textContent, this.textPos[0] * 6, this.textPos[1] * 6 + 30);
+        pidsCtx.fillText(this.textContent, this.textPos[0] * 7 + 20, this.textPos[1] * 7 + 50);
     }
 }
 const Text = {
@@ -457,3 +457,14 @@ const Text = {
         return new TextObj();
     }
 };
+
+function getWrappedItem(list, index) {
+    return list[index % list.length];
+}
+
+textCycle = 0;
+function updateTextCycle() {
+    textCycle += 1;
+    setTimeout(updateTextCycle, 1000);
+}
+updateTextCycle();
