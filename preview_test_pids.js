@@ -1,14 +1,6 @@
 include(Resources.id("jsblock:scripts/pids_util.js"));
 
 function render(ctx, state, pids) {
-    /*Text.create("Test")
-        .text("Hello world")
-        .color(0xFFFFFF)
-        .pos(3, 40)
-        .scale(1)
-        .draw(ctx);*/
-
-
     Text.create("Title text")
         .text("Train Arrivals")
         .color(0xFFFFFF)
