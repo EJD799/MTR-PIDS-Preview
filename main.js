@@ -36,6 +36,7 @@ let pidsData = {
     platformNumberHidden: false,
     position: [0, 0, 0],
     keyBlock: false,
+    station: "Station 3",
     arrivals: [
         {
             destination: "Station 1",
@@ -312,7 +313,7 @@ const pidsObj = {
         };
     },
     station: function() {
-
+        return pidsData.station;
     },
     isKeyBlock: function() {
         return pidsData.keyBlock;
