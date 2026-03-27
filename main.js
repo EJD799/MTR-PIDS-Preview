@@ -449,7 +449,7 @@ class TextObj {
         pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
         pidsCtx.textAlign = this.textAlign;
         pidsCtx.fillStyle = this.textColor;
-        pidsCtx.fillText(this.textContent, this.textPos[0] * 7 + 20, this.textPos[1] * 7 + 50);
+        pidsCtx.fillText(this.textContent, this.textPos[0] * 7.5 + 20, this.textPos[1] * 7.5 + 70);
     }
 }
 const Text = {
