@@ -732,4 +732,6 @@ async function selectExamplePIDS(item) {
         await loadTexture(name, file);
         console.log("Loaded texture:", name);
     }
+
+    exitSetup();
 }
