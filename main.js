@@ -41,7 +41,7 @@ const MinecraftClient = {
     }
 };
 
-const pidsSizes = {
+let pidsSizes = {
     "rv_pids": {
         true: {
             w: 136,
@@ -57,7 +57,7 @@ const pidsSizes = {
             h: 572
         },
         multiplier: 7.53,
-        textYOffset: 20
+        textYOffset: 15
     },
     "lcd_pids": {
         true: {
@@ -74,7 +74,7 @@ const pidsSizes = {
             h: 554
         },
         multiplier: 7.7,
-        textYOffset: 25
+        textYOffset: 15
     },
     "pids_1a": {
         true: {
