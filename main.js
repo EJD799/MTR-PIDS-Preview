@@ -26,6 +26,63 @@ print = function(t) {
     console.log(t);
 };
 
+const pidsSizes = {
+    "rv_pids": {
+        true: {
+            w: 136,
+            h: 76,
+            rows: 4
+        },
+        css: {
+            w: 512,
+            h: 286
+        },
+        canvas: {
+            w: 1024,
+            h: 572
+        }
+    },
+    "lcd_pids": {
+        true: {
+            w: 133,
+            h: 72,
+            rows: 4
+        },
+        css: {
+            w: 512,
+            h: 277
+        },
+        canvas: {
+            w: 1024,
+            h: 554
+        }
+    },
+    "pids_1a": {
+        true: {
+            w: 186,
+            h: 60,
+            rows: 2
+        },
+        css: {
+            w: 512,
+            h: 165
+        },
+        canvas: {
+            w: 1024,
+            h: 330
+        }
+    },
+};
+
+pidsSizeMenu.addEventListener("change", function(e) {
+    pidsCanvas.style.width = `${pidsSizes[pidsSizeMenu.value].css.w}px`;
+    pidsCanvas.style.height = `${pidsSizes[pidsSizeMenu.value].css.h}px`;
+    pidsCanvas.setAttribute("width", pidsSizes[pidsSizeMenu.value].canvas.w);
+    pidsCanvas.setAttribute("height", pidsSizes[pidsSizeMenu.value].canvas.h);
+});
+
+
+
 let pidsData;
 function resetPIDSData() {
     pidsData = {
@@ -567,58 +624,3 @@ document.getElementById("textureFileInput").onchange = async (e) => {
     // Reset input so same file can be selected again later
     e.target.value = "";
 };
-
-const pidsSizes = {
-    "rv_pids": {
-        true: {
-            w: 136,
-            h: 76,
-            rows: 4
-        },
-        css: {
-            w: 512,
-            h: 286
-        },
-        canvas: {
-            w: 1024,
-            h: 572
-        }
-    },
-    "lcd_pids": {
-        true: {
-            w: 133,
-            h: 72,
-            rows: 4
-        },
-        css: {
-            w: 512,
-            h: 277
-        },
-        canvas: {
-            w: 1024,
-            h: 554
-        }
-    },
-    "pids_1a": {
-        true: {
-            w: 186,
-            h: 60,
-            rows: 2
-        },
-        css: {
-            w: 512,
-            h: 165
-        },
-        canvas: {
-            w: 1024,
-            h: 330
-        }
-    },
-};
-
-pidsSizeMenu.addEventListener("change", function(e) {
-    pidsCanvas.style.width = `${pidsSizes[pidsSizeMenu.value].css.w}px`;
-    pidsCanvas.style.height = `${pidsSizes[pidsSizeMenu.value].css.h}px`;
-    pidsCanvas.setAttribute("width", pidsSizes[pidsSizeMenu.value].canvas.w);
-    pidsCanvas.setAttribute("height", pidsSizes[pidsSizeMenu.value].canvas.h);
-});
