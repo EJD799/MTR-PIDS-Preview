@@ -20,6 +20,13 @@
             .pidsTypeCard {
                 padding: 8px;
             }
+
+            #codeEditor {
+                width: calc(100% - 16px);
+                height: 450px;
+                border: none;
+                position: relative;
+            }
         </style>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
@@ -81,12 +88,17 @@
                 <div id="setupPage2" class="hidden">
                     <p>Paste in the code for your PIDS preset.</p>
                     <br>
+                    <div id="codeEditor"></div>
+                    <br>
                     <button class="button is-primary" onclick="setupPage(3);">Next</button>
                 </div>
                 <div id="setupPage3" class="hidden">
                     <p>Upload all textures that your PIDS uses, and make sure to set the file names correctly.</p>
                     <br>
                     <button class="button" id="importTextureBtn">Add Texture</button>
+                    <br>
+                    <span class="title is-6">Added Textures</span><br>
+                    <ul id="textureList"></ul>
                     <br><br>
                     <button class="button is-primary" onclick="exitSetup();">Done</button>
                 </div>
@@ -94,5 +106,20 @@
         </div>
 
         <script src="main.js"></script>
+
+        <script type="module">
+            import * as monaco from "https://cdn.jsdelivr.net/npm/monaco-editor@0.52.0/+esm";
+
+            let editor;
+
+            window.addEventListener("DOMContentLoaded", () => {
+                editor = monaco.editor.create(document.getElementById("codeEditor"), {
+                    value: "",
+                    language: "javascript",
+                    theme: "vs-dark",
+                });
+                window.requestAnimationFrame(() => editor.layout());
+            });
+        </script>
     </body>
 </html>

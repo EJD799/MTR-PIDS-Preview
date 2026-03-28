@@ -652,6 +652,10 @@ document.getElementById("textureFileInput").onchange = async (e) => {
 
     console.log("Loaded texture:", name);
 
+    let listItem = document.createElement("li");
+    listItem.innerHTML = name;
+    textureList.appendChild(listItem);
+
     // Reset input so same file can be selected again later
     e.target.value = "";
 };
