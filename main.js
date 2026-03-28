@@ -31,6 +31,9 @@ print = function(t) {
 function importPackage(pack) {
 
 }
+const java = {
+    awt: null
+};
 
 const pidsSizes = {
     "rv_pids": {
