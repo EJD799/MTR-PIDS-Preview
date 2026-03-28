@@ -107,18 +107,26 @@
 
         <script src="main.js"></script>
 
-        <script type="module">
-            import * as monaco from "https://cdn.jsdelivr.net/npm/monaco-editor@0.52.0/+esm";
+        <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.0/min/vs/loader.js"></script>
+        <script>
+            require.config({
+                paths: {
+                    vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.52.0/min/vs"
+                }
+            });
 
-            let editor;
+            require(["vs/editor/editor.main"], function () {
+                // monaco is now a global
+                const editor = monaco.editor.create(
+                    document.getElementById("codeEditor"),
+                    {
+                        value: "",
+                        language: "javascript",
+                        theme: "vs-dark",
+                    }
+                );
 
-            window.addEventListener("DOMContentLoaded", () => {
-                editor = monaco.editor.create(document.getElementById("codeEditor"), {
-                    value: "",
-                    language: "javascript",
-                    theme: "vs-dark",
-                });
-                window.requestAnimationFrame(() => editor.layout());
+                window.editor = editor; // expose globally for debugging
             });
         </script>
     </body>
