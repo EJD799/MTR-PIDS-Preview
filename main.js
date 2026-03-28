@@ -56,7 +56,8 @@ const pidsSizes = {
             w: 1024,
             h: 572
         },
-        multiplier: 7.53
+        multiplier: 7.53,
+        textYOffset: 20
     },
     "lcd_pids": {
         true: {
@@ -72,7 +73,8 @@ const pidsSizes = {
             w: 1024,
             h: 554
         },
-        multiplier: 7.7
+        multiplier: 7.7,
+        textYOffset: 25
     },
     "pids_1a": {
         true: {
@@ -88,7 +90,8 @@ const pidsSizes = {
             w: 1024,
             h: 330
         },
-        multiplier: 5.5
+        multiplier: 5.5,
+        textYOffset: 5
     },
 };
 
@@ -536,12 +539,12 @@ class TextObj {
             pidsCtx.font = `${fontPrefix}${7.4 * pidsSizes[pidsSizeMenu.value].multiplier * this.textScale}px Helvetica, sans-serif`;
             pidsCtx.textAlign = this.textAlign;
             pidsCtx.fillStyle = 0x111111;
-            pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier + 2, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 22);
+            pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier + 2, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 22 + pidsSizes[pidsSizeMenu.value].textYOffset);
         }
         pidsCtx.font = `${fontPrefix}${7.4 * pidsSizes[pidsSizeMenu.value].multiplier * this.textScale}px Helvetica, sans-serif`;
         pidsCtx.textAlign = this.textAlign;
         pidsCtx.fillStyle = this.textColor;
-        pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 20);
+        pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 20 + pidsSizes[pidsSizeMenu.value].textYOffset);
     }
 }
 const Text = {
