@@ -673,7 +673,6 @@ function setupPage(number) {
         setupPage1.classList.add("hidden");
         setupPage2.classList.remove("hidden");
         setupPage3.classList.add("hidden");
-        editor.layout();
     }
     if (number == 3) {
         setupPage1.classList.add("hidden");
@@ -747,4 +746,11 @@ async function selectExamplePIDS(item) {
     pidsSizeMenu.dispatchEvent(new Event('change', { bubbles: true }));
 
     exitSetup();
+}
+
+function setCustomCode() {
+    let code = editor.getValue();
+    let scriptTag = document.createElement("script");
+    scriptTag.innerHTML = code;
+    document.body.appendChild(scriptTag);
 }

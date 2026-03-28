@@ -26,6 +26,7 @@
                 height: 400px;
                 border: none;
                 position: relative;
+                text-align: left;
             }
         </style>
 
@@ -60,7 +61,7 @@
                     <div class="card pidsTypeCard">
                         <span class="title is-5">Custom Code</span>
                         <p>Paste in the code for your own PIDS pack to test it.</p>
-                        <button class="button is-primary" onclick="setupPage(2);">Select</button>
+                        <button class="button is-primary" onclick="setupPage(2);editor.layout();">Select</button>
                     </div>
                     <span class="title is-6">Examples</span>
                     <br><br>
@@ -90,7 +91,7 @@
                     <br>
                     <div id="codeEditor"></div>
                     <br>
-                    <button class="button is-primary" onclick="setupPage(3);">Next</button>
+                    <button class="button is-primary" onclick="setCustomCode();setupPage(3);">Next</button>
                 </div>
                 <div id="setupPage3" class="hidden">
                     <p>Upload all textures that your PIDS uses, and make sure to set the file names correctly.</p>
