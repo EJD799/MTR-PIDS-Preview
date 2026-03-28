@@ -566,7 +566,7 @@ class TextureObj {
         this.textureSize = [0, 0];
     }
     texture(path) {
-        this.texturePath = path.replace("jsblock:textures/", "");
+        this.texturePath = path.replace("jsblock:", "");
         return this;
     }
     color(color) {
