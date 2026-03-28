@@ -32,7 +32,6 @@
         <button class="button is-success" onclick="renderingActive = true;">Start</button>
         <button class="button is-warning" onclick="renderingActive = false;">Pause</button>
         <button class="button is-danger" onclick="resetPIDSData();">Reset</button>
-        <button class="button" id="importTextureBtn">Import Texture</button>
         <div class="select">
             <select id="pidsSizeMenu">
                 <option value="rv_pids">RV PIDS</option>
@@ -46,10 +45,11 @@
 
         <div class="modal is-active" id="setupDlg">
             <div class="modal-background"></div>
-            <div class="modal-content card" style="height:500px;padding:20px;">
+            <div class="modal-content card" style="height:600px;padding:20px;">
                 <span class="title is-3">Welcome to MTR PIDS Preview!</span>
                 <div id="setupPage1">
                     <p>Please select a PIDS type to use.</p>
+                    <br>
                     <div class="card pidsTypeCard">
                         <span class="title is-5">Custom Code</span>
                         <p>Paste in the code for your own PIDS pack to test it.</p>
@@ -58,10 +58,14 @@
                 </div>
                 <div id="setupPage2" class="hidden">
                     <p>Paste in the code for your PIDS preset.</p>
+                    <br>
                     <button class="button is-primary" onclick="setupPage(3);">Next</button>
                 </div>
                 <div id="setupPage3" class="hidden">
                     <p>Upload all textures that your PIDS uses, and make sure to set the file names correctly.</p>
+                    <br>
+                    <button class="button" id="importTextureBtn">Add Texture</button>
+                    <br><br>
                     <button class="button is-primary" onclick="exitSetup();">Done</button>
                 </div>
             </div>
