@@ -550,7 +550,7 @@ document.getElementById("textureFileInput").onchange = async (e) => {
     if (!file) return;
 
     // Ask user for a name
-    let name = prompt("Enter texture name:", file.name.replace(".png", ""));
+    let name = prompt("Enter texture name:", file.name);
     if (!name) return;
 
     // Optional: normalize like your texture() method
