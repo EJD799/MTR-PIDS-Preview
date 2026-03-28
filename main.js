@@ -28,6 +28,10 @@ print = function(t) {
     console.log(t);
 };
 
+Array.prototype.toArray = function() {
+    return this;
+};
+
 function importPackage(pack) {
 
 }
@@ -322,7 +326,7 @@ const pidsObj = {
                                 getPlatforms: function() {
                                     let platforms = [];
                                     for (let i = 0; i < 6; i++) {
-                                        platforms += {
+                                        platforms.push({
                                             getPlatformId: function() {
                                                 return i;
                                             },
@@ -335,7 +339,7 @@ const pidsObj = {
                                             getDestination: function() {
                                                 return `Destination ${i}`;
                                             },
-                                        };
+                                        });
                                     }
                                     return platforms;
                                 }
