@@ -673,6 +673,7 @@ function setupPage(number) {
         setupPage1.classList.add("hidden");
         setupPage2.classList.remove("hidden");
         setupPage3.classList.add("hidden");
+        editor.layout();
     }
     if (number == 3) {
         setupPage1.classList.add("hidden");
