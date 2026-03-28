@@ -28,6 +28,10 @@ print = function(t) {
     console.log(t);
 };
 
+function importPackage(pack) {
+
+}
+
 const pidsSizes = {
     "rv_pids": {
         true: {
