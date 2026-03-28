@@ -444,12 +444,12 @@ class TextObj {
             pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
             pidsCtx.textAlign = this.textAlign;
             pidsCtx.fillStyle = 0x111111;
-            pidsCtx.fillText(this.textContent, this.textPos[0] * 7.5 + 22, this.textPos[1] * 7.5 + 72);
+            pidsCtx.fillText(this.textContent, this.textPos[0] * 7.3 + 22, this.textPos[1] * 7.3 + 72);
         }
         pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
         pidsCtx.textAlign = this.textAlign;
         pidsCtx.fillStyle = this.textColor;
-        pidsCtx.fillText(this.textContent, this.textPos[0] * 7.5 + 20, this.textPos[1] * 7.5 + 70);
+        pidsCtx.fillText(this.textContent, this.textPos[0] * 7.3 + 20, this.textPos[1] * 7.3 + 70);
     }
 }
 const Text = {
@@ -465,6 +465,6 @@ function getWrappedItem(list, index) {
 textCycle = 0;
 function updateTextCycle() {
     textCycle += 1;
-    setTimeout(updateTextCycle, 1000);
+    setTimeout(updateTextCycle, 2000);
 }
 updateTextCycle();
