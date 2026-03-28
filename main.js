@@ -505,12 +505,12 @@ class TextObj {
             fontPrefix += "italic ";
         }
         if (this.isShadowed) {
-            pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
+            pidsCtx.font = `${fontPrefix}${7.4 * pidsSizes[pidsSizeMenu.value].multiplier * this.textScale}px sans-serif`;
             pidsCtx.textAlign = this.textAlign;
             pidsCtx.fillStyle = 0x111111;
             pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier + 22, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 72);
         }
-        pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
+        pidsCtx.font = `${fontPrefix}${7.4 * pidsSizes[pidsSizeMenu.value].multiplier * this.textScale}px sans-serif`;
         pidsCtx.textAlign = this.textAlign;
         pidsCtx.fillStyle = this.textColor;
         pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier + 20, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 70);
