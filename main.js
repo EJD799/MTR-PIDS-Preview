@@ -680,3 +680,56 @@ function setupPage(number) {
 function exitSetup() {
     setupDlg.classList.remove("is-active");
 }
+
+async function getArrayBufferFromURL(url) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Failed to fetch: " + res.status);
+    return await res.arrayBuffer();
+}
+
+const examplePIDS = [
+    {
+        js: "pids/wmata_pids.js",
+        textures: []
+    },
+    {
+        js: "pids/cta_pids.js",
+        textures: [
+            "textures/us_pids_pack/cta_arrivalbox.png"
+        ],
+        textureNames: [
+            "textures/cta_arrivalbox.png"
+        ]
+    },
+    {
+        js: "pids/legible_prague_tram.js",
+        textures: [
+            "textures/legible_tram/white.png",
+            "textures/legible_tram/white_circle.png"
+        ],
+        textureNames: [
+            "custom_directory/white.png",
+            "custom_directory/white_circle.png"
+        ]
+    },
+    {
+        js: "pids/uk_led_1a.js",
+        textures: [
+            "textures/uk_led_pids/black.png"
+        ],
+        textureNames: [
+            "textures/black.png"
+        ]
+    }
+];
+
+async function selectExamplePIDS(item) {
+    include(examplePIDS[item].js);
+
+    for (let i = 0; i < examplePIDS[item].textures.length; i++) {
+        let file = await getArrayBufferFromURL(examplePIDS[item].textures[i]);
+        let name = examplePIDS[item].textureNames[i];
+        await loadTexture(name, file);
+        console.log("Loaded texture:", name);
+    }
+}
