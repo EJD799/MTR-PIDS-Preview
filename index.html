@@ -16,6 +16,10 @@
             .hidden {
                 display: none;
             }
+
+            .pidsTypeCard {
+                padding: 8px;
+            }
         </style>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
@@ -42,18 +46,22 @@
 
         <div class="modal is-active" id="setupDlg">
             <div class="modal-background"></div>
-            <div class="modal-content">
+            <div class="modal-content card" style="height:500px;padding:20px;">
+                <span class="title is-3">Welcome to MTR PIDS Preview!</span>
                 <div id="setupPage1">
-                    <div class="card">
-                        <h4 class="title is-4">Custom Code</h4>
+                    <p>Please select a PIDS type to use.</p>
+                    <div class="card pidsTypeCard">
+                        <span class="title is-5">Custom Code</span>
                         <p>Paste in the code for your own PIDS pack to test it.</p>
                         <button class="button is-primary" onclick="setupPage(2);">Select</button>
                     </div>
                 </div>
                 <div id="setupPage2" class="hidden">
+                    <p>Paste in the code for your PIDS preset.</p>
                     <button class="button is-primary" onclick="setupPage(3);">Next</button>
                 </div>
                 <div id="setupPage3" class="hidden">
+                    <p>Upload all textures that your PIDS uses, and make sure to set the file names correctly.</p>
                     <button class="button is-primary" onclick="exitSetup();">Done</button>
                 </div>
             </div>
