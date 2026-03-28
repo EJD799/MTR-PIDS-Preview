@@ -389,7 +389,11 @@ const pidsObj = {
         };
     },
     station: function() {
-        return pidsData.station;
+        return {
+            getName: function() {
+                return pidsData.station;
+            }
+        };
     },
     isKeyBlock: function() {
         return pidsData.keyBlock;
