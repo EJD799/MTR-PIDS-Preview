@@ -656,4 +656,27 @@ document.getElementById("textureFileInput").onchange = async (e) => {
     e.target.value = "";
 };
 
-include(prompt("Enter PIDS URL: "));
+//include(prompt("Enter PIDS URL: "));
+
+
+function setupPage(number) {
+    if (number == 1) {
+        setupPage1.classList.remove("hidden");
+        setupPage2.classList.add("hidden");
+        setupPage3.classList.add("hidden");
+    }
+    if (number == 2) {
+        setupPage1.classList.add("hidden");
+        setupPage2.classList.remove("hidden");
+        setupPage3.classList.add("hidden");
+    }
+    if (number == 3) {
+        setupPage1.classList.add("hidden");
+        setupPage2.classList.add("hidden");
+        setupPage3.classList.remove("hidden");
+    }
+}
+
+function exitSetup() {
+    setupDlg.classList.remove("is-active");
+}

@@ -4,14 +4,17 @@
 
         <style>
             #pidsCanvas {
-                /*width: 512px;
-                height: 286px;*/
                 border: 4px solid black;
                 background: black;
             }
 
             body {
                 padding: 16px !important;
+                text-align: center;
+            }
+
+            .hidden {
+                display: none;
             }
         </style>
 
@@ -36,6 +39,25 @@
         <input type="file" id="textureFileInput" accept="image/png" style="display:none">
         <br><br>
         <canvas style="width:512px;height:286px;" width="1024" height="572" id="pidsCanvas"></canvas>
+
+        <div class="modal is-active" id="setupDlg">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div id="setupPage1">
+                    <div class="card">
+                        <h4 class="title is-4">Custom Code</h4>
+                        <p>Paste in the code for your own PIDS pack to test it.</p>
+                        <button class="button is-primary" onclick="setupPage(2);">Select</button>
+                    </div>
+                </div>
+                <div id="setupPage2" class="hidden">
+                    <button class="button is-primary" onclick="setupPage(3);">Next</button>
+                </div>
+                <div id="setupPage3" class="hidden">
+                    <button class="button is-primary" onclick="exitSetup();">Done</button>
+                </div>
+            </div>
+        </div>
 
         <script src="main.js"></script>
     </body>

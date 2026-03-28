@@ -10,7 +10,7 @@ function render(ctx, state, pids) {
         .text("LN  CAR       DEST       MIN")
         .color(0xFF0000)
         .scale(1.25)
-        .pos(0, 4)
+        .pos(0, 5)
         .draw(ctx);
     for(let i = 0; i < pids.rows; i++) {
         let arrival = pids.arrivals().get(i);
@@ -19,21 +19,21 @@ function render(ctx, state, pids) {
             Text.create("Arrival route")
             .text(TextUtil.cycleString(arrival.routeNumber()))
             .color(0xFFFF00)
-            .pos(0, i*16.75+19.5)
+            .pos(0, i*16.75+20.5)
             .scale(1.25)
             .draw(ctx);
 
             Text.create("Arrival length")
             .text(TextUtil.cycleString(arrival.carCount()))
             .color(0xFFFF00)
-            .pos(27, i*16.75+19.5)
+            .pos(27, i*16.75+20.5)
             .scale(1.25)
             .draw(ctx);
 
             Text.create("Arrival destination")
             .text(TextUtil.cycleString(arrival.destination()))
             .color(0xFFFF00)
-            .pos(48, i*16.75+19.5)
+            .pos(48, i*16.75+20.5)
             .scale(1.25)
             .draw(ctx);
 
@@ -41,7 +41,7 @@ if (TextUtil.getNonCjkParts(PIDSUtil.getETAText(arrival.arrivalTime())).replace(
             Text.create("Arrival time")
             .text("BRD")
             .color(0xFFFF00)
-            .pos(135, i*16.75+19.5)
+            .pos(135, i*16.75+20.5)
             .rightAlign()
             .scale(1.25)
             .draw(ctx);
@@ -49,7 +49,7 @@ if (TextUtil.getNonCjkParts(PIDSUtil.getETAText(arrival.arrivalTime())).replace(
             Text.create("Arrival time")
             .text(TextUtil.getNonCjkParts(PIDSUtil.getETAText(arrival.arrivalTime())).replace(" sec","s").replace("mins","").replace(" min",""))
             .color(0xFFFF00)
-            .pos(135, i*16.75+19.5)
+            .pos(135, i*16.75+20.5)
             .rightAlign()
             .scale(1.25)
             .draw(ctx);
