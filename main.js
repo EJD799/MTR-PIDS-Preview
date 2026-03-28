@@ -26,170 +26,174 @@ print = function(t) {
     console.log(t);
 };
 
-let pidsData = {
-    type: "rv_pids",
-    width: 1024,
-    height: 512,
-    rows: 4,
-    customMessages: ["", "", "", ""],
-    hiddenArrivals: [false, false, false, false],
-    platformNumberHidden: false,
-    position: [0, 0, 0],
-    keyBlock: false,
-    station: "Station 3",
-    arrivals: [
-        {
-            destination: "Station 1",
-            arrivalTime: Date.now(),
-            departureTime: Date.now() + 15000,
-            realtime: true,
-            terminating: false,
-            route: {
-                id: "",
-                name: "Route Name",
-                number: "123",
-                color: 0xFF0000,
-                circularState: false
+let pidsData;
+function resetPIDSData() {
+    pidsData = {
+        type: "rv_pids",
+        width: 1024,
+        height: 512,
+        rows: 4,
+        customMessages: ["", "", "", ""],
+        hiddenArrivals: [false, false, false, false],
+        platformNumberHidden: false,
+        position: [0, 0, 0],
+        keyBlock: false,
+        station: "Station 3",
+        arrivals: [
+            {
+                destination: "Station 1",
+                arrivalTime: Date.now(),
+                departureTime: Date.now() + 15000,
+                realtime: true,
+                terminating: false,
+                route: {
+                    id: "",
+                    name: "Route Name",
+                    number: "123",
+                    color: 0xFF0000,
+                    circularState: false
+                },
+                platform: {
+                    id: "1",
+                    name: "1",
+                    dwellTime: 15000
+                },
+                cars: [
+                    "sp1900_cab_1",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_cab_2"
+                ]
             },
-            platform: {
-                id: "1",
-                name: "1",
-                dwellTime: 15000
+            {
+                destination: "Station 2",
+                arrivalTime: Date.now() + 30000,
+                departureTime: Date.now() + 45000,
+                realtime: true,
+                terminating: false,
+                route: {
+                    id: "",
+                    name: "Route Name",
+                    number: "124",
+                    color: 0x0000FF,
+                    circularState: false
+                },
+                platform: {
+                    id: "1",
+                    name: "1",
+                    dwellTime: 15000
+                },
+                cars: [
+                    "sp1900_cab_1",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_cab_2"
+                ]
             },
-            cars: [
-                "sp1900_cab_1",
-                "sp1900_trailer",
-                "sp1900_trailer",
-                "sp1900_cab_2"
-            ]
-        },
-        {
-            destination: "Station 2",
-            arrivalTime: Date.now() + 30000,
-            departureTime: Date.now() + 45000,
-            realtime: true,
-            terminating: false,
-            route: {
-                id: "",
-                name: "Route Name",
-                number: "124",
-                color: 0x0000FF,
-                circularState: false
+            {
+                destination: "Station 1",
+                arrivalTime: Date.now() + 60000,
+                departureTime: Date.now() + 75000,
+                realtime: true,
+                terminating: false,
+                route: {
+                    id: "",
+                    name: "Route Name",
+                    number: "123",
+                    color: 0xFF0000,
+                    circularState: false
+                },
+                platform: {
+                    id: "1",
+                    name: "1",
+                    dwellTime: 15000
+                },
+                cars: [
+                    "sp1900_cab_1",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_cab_2"
+                ]
             },
-            platform: {
-                id: "1",
-                name: "1",
-                dwellTime: 15000
+            {
+                destination: "Station 2",
+                arrivalTime: Date.now() + 90000,
+                departureTime: Date.now() + 105000,
+                realtime: true,
+                terminating: false,
+                route: {
+                    id: "",
+                    name: "Route Name",
+                    number: "124",
+                    color: 0x0000FF,
+                    circularState: false
+                },
+                platform: {
+                    id: "1",
+                    name: "1",
+                    dwellTime: 15000
+                },
+                cars: [
+                    "sp1900_cab_1",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_cab_2"
+                ]
             },
-            cars: [
-                "sp1900_cab_1",
-                "sp1900_trailer",
-                "sp1900_trailer",
-                "sp1900_cab_2"
-            ]
-        },
-        {
-            destination: "Station 1",
-            arrivalTime: Date.now() + 60000,
-            departureTime: Date.now() + 75000,
-            realtime: true,
-            terminating: false,
-            route: {
-                id: "",
-                name: "Route Name",
-                number: "123",
-                color: 0xFF0000,
-                circularState: false
+            {
+                destination: "Station 1",
+                arrivalTime: Date.now() + 120000,
+                departureTime: Date.now() + 135000,
+                realtime: false,
+                terminating: false,
+                route: {
+                    id: "",
+                    name: "Route Name",
+                    number: "123",
+                    color: 0xFF0000,
+                    circularState: false
+                },
+                platform: {
+                    id: "1",
+                    name: "1",
+                    dwellTime: 15000
+                },
+                cars: [
+                    "sp1900_cab_1",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_cab_2"
+                ]
             },
-            platform: {
-                id: "1",
-                name: "1",
-                dwellTime: 15000
-            },
-            cars: [
-                "sp1900_cab_1",
-                "sp1900_trailer",
-                "sp1900_trailer",
-                "sp1900_cab_2"
-            ]
-        },
-        {
-            destination: "Station 2",
-            arrivalTime: Date.now() + 90000,
-            departureTime: Date.now() + 105000,
-            realtime: true,
-            terminating: false,
-            route: {
-                id: "",
-                name: "Route Name",
-                number: "124",
-                color: 0x0000FF,
-                circularState: false
-            },
-            platform: {
-                id: "1",
-                name: "1",
-                dwellTime: 15000
-            },
-            cars: [
-                "sp1900_cab_1",
-                "sp1900_trailer",
-                "sp1900_trailer",
-                "sp1900_cab_2"
-            ]
-        },
-        {
-            destination: "Station 1",
-            arrivalTime: Date.now() + 120000,
-            departureTime: Date.now() + 135000,
-            realtime: false,
-            terminating: false,
-            route: {
-                id: "",
-                name: "Route Name",
-                number: "123",
-                color: 0xFF0000,
-                circularState: false
-            },
-            platform: {
-                id: "1",
-                name: "1",
-                dwellTime: 15000
-            },
-            cars: [
-                "sp1900_cab_1",
-                "sp1900_trailer",
-                "sp1900_trailer",
-                "sp1900_cab_2"
-            ]
-        },
-        {
-            destination: "Station 2",
-            arrivalTime: Date.now() + 150000,
-            departureTime: Date.now() + 165000,
-            realtime: false,
-            terminating: false,
-            route: {
-                id: "",
-                name: "Route Name",
-                number: "124",
-                color: 0x0000FF,
-                circularState: false
-            },
-            platform: {
-                id: "1",
-                name: "1",
-                dwellTime: 15000
-            },
-            cars: [
-                "sp1900_cab_1",
-                "sp1900_trailer",
-                "sp1900_trailer",
-                "sp1900_cab_2"
-            ]
-        }
-    ]
-};
+            {
+                destination: "Station 2",
+                arrivalTime: Date.now() + 150000,
+                departureTime: Date.now() + 165000,
+                realtime: false,
+                terminating: false,
+                route: {
+                    id: "",
+                    name: "Route Name",
+                    number: "124",
+                    color: 0x0000FF,
+                    circularState: false
+                },
+                platform: {
+                    id: "1",
+                    name: "1",
+                    dwellTime: 15000
+                },
+                cars: [
+                    "sp1900_cab_1",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_cab_2"
+                ]
+            }
+        ]
+    };
+}
+resetPIDSData();
 
 const pidsObj = {
     arrivals: function() {
