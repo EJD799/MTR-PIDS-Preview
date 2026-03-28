@@ -41,7 +41,7 @@ const pidsSizes = {
             w: 1024,
             h: 572
         },
-        multiplier: 7.3
+        multiplier: 7.53
     },
     "lcd_pids": {
         true: {
@@ -57,7 +57,7 @@ const pidsSizes = {
             w: 1024,
             h: 554
         },
-        multiplier: 7.45
+        multiplier: 7.7
     },
     "pids_1a": {
         true: {
@@ -73,7 +73,7 @@ const pidsSizes = {
             w: 1024,
             h: 330
         },
-        multiplier: 5.34
+        multiplier: 5.5
     },
 };
 
@@ -508,12 +508,12 @@ class TextObj {
             pidsCtx.font = `${fontPrefix}${7.4 * pidsSizes[pidsSizeMenu.value].multiplier * this.textScale}px sans-serif`;
             pidsCtx.textAlign = this.textAlign;
             pidsCtx.fillStyle = 0x111111;
-            pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier + 22, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 72);
+            pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier + 2, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 2);
         }
         pidsCtx.font = `${fontPrefix}${7.4 * pidsSizes[pidsSizeMenu.value].multiplier * this.textScale}px sans-serif`;
         pidsCtx.textAlign = this.textAlign;
         pidsCtx.fillStyle = this.textColor;
-        pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier + 20, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 70);
+        pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier);
     }
 }
 const Text = {
@@ -576,13 +576,13 @@ class TextureObj {
         const [w, h] = this.textureSize;
 
         // Draw scaled image
-        pidsCtx.drawImage(img, x * pidsSizes[pidsSizeMenu.value].multiplier + 20, y * pidsSizes[pidsSizeMenu.value].multiplier + 40, w * pidsSizes[pidsSizeMenu.value].multiplier, h * pidsSizes[pidsSizeMenu.value].multiplier);
+        pidsCtx.drawImage(img, x * pidsSizes[pidsSizeMenu.value].multiplier, y * pidsSizes[pidsSizeMenu.value].multiplier, w * pidsSizes[pidsSizeMenu.value].multiplier, h * pidsSizes[pidsSizeMenu.value].multiplier);
 
         // Apply tint (skip if white = no tint)
         if (this.textureColor && this.textureColor !== "#ffffff") {
             pidsCtx.globalCompositeOperation = "source-atop";
             pidsCtx.fillStyle = this.textureColor;
-            pidsCtx.fillRect(x * pidsSizes[pidsSizeMenu.value].multiplier + 20, y * pidsSizes[pidsSizeMenu.value].multiplier + 40, w * pidsSizes[pidsSizeMenu.value].multiplier, h * pidsSizes[pidsSizeMenu.value].multiplier);
+            pidsCtx.fillRect(x * pidsSizes[pidsSizeMenu.value].multiplier, y * pidsSizes[pidsSizeMenu.value].multiplier, w * pidsSizes[pidsSizeMenu.value].multiplier, h * pidsSizes[pidsSizeMenu.value].multiplier);
             pidsCtx.globalCompositeOperation = "source-over";
         }
     }
