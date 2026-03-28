@@ -22,8 +22,6 @@
     </head>
 
     <body>
-        <canvas style="width:512px;height:286px;" width="1024" height="572" id="pidsCanvas"></canvas>
-        <br><br>
         <button class="button is-success" onclick="renderingActive = true;">Start</button>
         <button class="button is-warning" onclick="renderingActive = false;">Pause</button>
         <button class="button is-danger" onclick="resetPIDSData();">Reset</button>
@@ -36,8 +34,9 @@
             </select>
         </div>
         <input type="file" id="textureFileInput" accept="image/png" style="display:none">
+        <br><br>
+        <canvas style="width:512px;height:286px;" width="1024" height="572" id="pidsCanvas"></canvas>
 
         <script src="main.js"></script>
-        <!--<script src="cta_pids.js"></script>-->
     </body>
 </html>
