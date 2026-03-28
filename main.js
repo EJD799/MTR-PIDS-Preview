@@ -632,3 +632,5 @@ document.getElementById("textureFileInput").onchange = async (e) => {
     // Reset input so same file can be selected again later
     e.target.value = "";
 };
+
+include(prompt("Enter PIDS URL: "));
