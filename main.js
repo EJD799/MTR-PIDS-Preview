@@ -565,7 +565,7 @@ updateTextCycle();
 class TextureObj {
     constructor() {
         this.texturePath = "";
-        this.textureColor = "#FFFFFF";
+        this.textureColor = null;
         this.texturePos = [0, 0];
         this.textureSize = [0, 0];
     }
