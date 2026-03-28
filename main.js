@@ -472,3 +472,98 @@ function updateTextCycle() {
     setTimeout(updateTextCycle, 2000);
 }
 updateTextCycle();
+
+
+class TextureObj {
+    constructor() {
+        this.texturePath = "";
+        this.textureColor = 0xFFFFFF;
+        this.texturePos = [0, 0];
+        this.textureSize = [0, 0];
+    }
+    texture(path) {
+        this.texturePath = path.replace("jsblock:textures/", "");
+        return this;
+    }
+    color(color) {
+        if (typeof color === "number") {
+            this.textureColor = "#" + color.toString(16).padStart(6, "0");
+        } else {
+            this.textureColor = color;
+        }
+        return this;
+    }
+    pos(x, y) {
+        this.texturePos = [x, y];
+        return this;
+    }
+    size(w, h) {
+        this.textureSize = [w, h];
+        return this;
+    }
+    uv() {
+        return this;
+    }
+    matrices() {
+        return this;
+    }
+
+    draw(ctx) {
+        const img = textureResources[this.texturePath];
+        if (!img) return; // not loaded yet
+
+        const [x, y] = this.texturePos;
+        const [w, h] = this.textureSize;
+
+        // Draw scaled image
+        pidsCtx.drawImage(img, x, y, w, h);
+
+        // Apply tint (skip if white = no tint)
+        if (this.textureColor && this.textureColor !== "#ffffff") {
+            pidsCtx.globalCompositeOperation = "source-atop";
+            pidsCtx.fillStyle = this.textureColor;
+            pidsCtx.fillRect(x, y, w, h);
+            pidsCtx.globalCompositeOperation = "source-over";
+        }
+    }
+}
+const Texture = {
+    create: function() {
+        return new TextureObj();
+    }
+};
+
+let textureResources = {};
+
+async function loadTexture(path, arrayBuffer) {
+    const blob = new Blob([arrayBuffer], { type: "image/png" });
+    const bitmap = await createImageBitmap(blob);
+    textureResources[path] = bitmap;
+}
+
+document.getElementById("importTextureBtn").onclick = () => {
+    document.getElementById("textureFileInput").click();
+};
+
+document.getElementById("textureFileInput").onchange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    // Ask user for a name
+    let name = prompt("Enter texture name:", file.name.replace(".png", ""));
+    if (!name) return;
+
+    // Optional: normalize like your texture() method
+    name = name.replace("jsblock:textures/", "");
+
+    // Read file as ArrayBuffer
+    const buffer = await file.arrayBuffer();
+
+    // Load into your system
+    await loadTexture(name, buffer);
+
+    console.log("Loaded texture:", name);
+
+    // Reset input so same file can be selected again later
+    e.target.value = "";
+};
