@@ -446,7 +446,7 @@ renderFrame();
 class TextObj {
     constructor() {
         this.textContent = "";
-        this.textColor = 0xFFFFFF;
+        this.textColor = "#FFFFFF";
         this.textPos = [0, 0];
         this.textScale = 1;
         this.isBold = false;
@@ -561,7 +561,7 @@ updateTextCycle();
 class TextureObj {
     constructor() {
         this.texturePath = "";
-        this.textureColor = 0xFFFFFF;
+        this.textureColor = "#FFFFFF";
         this.texturePos = [0, 0];
         this.textureSize = [0, 0];
     }
