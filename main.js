@@ -320,7 +320,24 @@ const pidsObj = {
                                     return pidsData.arrivals[number].route.circularState;
                                 },
                                 getPlatforms: function() {
-                                    return null;
+                                    let platforms = [];
+                                    for (let i = 0; i < 6; i++) {
+                                        platforms += {
+                                            getPlatformId: function() {
+                                                return i;
+                                            },
+                                            getStationId: function() {
+                                                return null;
+                                            },
+                                            getStationName: function() {
+                                                return `Station ${i}`;
+                                            },
+                                            getDestination: function() {
+                                                return `Destination ${i}`;
+                                            },
+                                        };
+                                    }
+                                    return platforms;
                                 }
                             };
                         },
