@@ -1,3 +1,5 @@
+bulmaSelectmenu.attachMenu(pidsSizeMenu);
+
 const pidsCtx = pidsCanvas.getContext('2d');
 
 function include(url) {
