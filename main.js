@@ -510,12 +510,12 @@ class TextObj {
             pidsCtx.font = `${fontPrefix}${7.4 * pidsSizes[pidsSizeMenu.value].multiplier * this.textScale}px Helvetica, sans-serif`;
             pidsCtx.textAlign = this.textAlign;
             pidsCtx.fillStyle = 0x111111;
-            pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier + 2, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 32);
+            pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier + 2, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 27);
         }
         pidsCtx.font = `${fontPrefix}${7.4 * pidsSizes[pidsSizeMenu.value].multiplier * this.textScale}px Helvetica, sans-serif`;
         pidsCtx.textAlign = this.textAlign;
         pidsCtx.fillStyle = this.textColor;
-        pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 30);
+        pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 25);
     }
 }
 const Text = {
