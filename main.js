@@ -690,7 +690,9 @@ async function getArrayBufferFromURL(url) {
 const examplePIDS = [
     {
         js: "pids/wmata_pids.js",
-        textures: []
+        textures: [],
+        textureNames: [],
+        pidsType: "rv_pids"
     },
     {
         js: "pids/cta_pids.js",
@@ -699,7 +701,8 @@ const examplePIDS = [
         ],
         textureNames: [
             "textures/cta_arrivalbox.png"
-        ]
+        ],
+        pidsType: "pids_1a"
     },
     {
         js: "pids/legible_prague_tram.js",
@@ -710,7 +713,8 @@ const examplePIDS = [
         textureNames: [
             "custom_directory/white.png",
             "custom_directory/white_circle.png"
-        ]
+        ],
+        pidsType: "pids_1a"
     },
     {
         js: "pids/uk_led_1a.js",
@@ -719,7 +723,8 @@ const examplePIDS = [
         ],
         textureNames: [
             "textures/black.png"
-        ]
+        ],
+        pidsType: "pids_1a"
     }
 ];
 
@@ -732,6 +737,9 @@ async function selectExamplePIDS(item) {
         await loadTexture(name, file);
         console.log("Loaded texture:", name);
     }
+
+    pidsSizeMenu.value = examplePIDS[item].pidsType;
+    pidsSizeMenu.dispatchEvent(new Event('change', { bubbles: true }));
 
     exitSetup();
 }
