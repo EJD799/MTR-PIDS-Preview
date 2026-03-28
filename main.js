@@ -422,7 +422,9 @@ function renderFrame() {
 
         try {
             render(null, null, pidsObj);
-        } catch(e) {}
+        } catch(e) {
+            console.error(e);
+        }
     }
     setTimeout(renderFrame, 33);
 }
