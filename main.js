@@ -638,7 +638,7 @@ document.getElementById("textureFileInput").onchange = async (e) => {
     if (!name) return;
 
     // Optional: normalize like your texture() method
-    name = name.replace("jsblock:textures/", "");
+    name = name.replace("jsblock:", "");
 
     // Read file as ArrayBuffer
     const buffer = await file.arrayBuffer();
