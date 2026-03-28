@@ -30,8 +30,8 @@ let pidsData;
 function resetPIDSData() {
     pidsData = {
         type: "rv_pids",
-        width: 1024,
-        height: 512,
+        width: 136,
+        height: 76,
         rows: 4,
         customMessages: ["", "", "", ""],
         hiddenArrivals: [false, false, false, false],
@@ -516,7 +516,7 @@ class TextureObj {
         const [w, h] = this.textureSize;
 
         // Draw scaled image
-        pidsCtx.drawImage(img, x, y, w, h);
+        pidsCtx.drawImage(img, x * 7.3 + 20, y * 7.3 + 70, w * 7.3, h * 7.3);
 
         // Apply tint (skip if white = no tint)
         if (this.textureColor && this.textureColor !== "#ffffff") {
