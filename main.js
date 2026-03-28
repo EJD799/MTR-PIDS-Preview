@@ -35,6 +35,12 @@ const java = {
     awt: null
 };
 
+const MinecraftClient = {
+    worldDayTime: function() {
+        return 6000;
+    }
+};
+
 const pidsSizes = {
     "rv_pids": {
         true: {
