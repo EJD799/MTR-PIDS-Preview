@@ -40,7 +40,8 @@ const pidsSizes = {
         canvas: {
             w: 1024,
             h: 572
-        }
+        },
+        multiplier: 7.3
     },
     "lcd_pids": {
         true: {
@@ -55,7 +56,8 @@ const pidsSizes = {
         canvas: {
             w: 1024,
             h: 554
-        }
+        },
+        multiplier: 7.45
     },
     "pids_1a": {
         true: {
@@ -70,7 +72,8 @@ const pidsSizes = {
         canvas: {
             w: 1024,
             h: 330
-        }
+        },
+        multiplier: 5.34
     },
 };
 
@@ -505,12 +508,12 @@ class TextObj {
             pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
             pidsCtx.textAlign = this.textAlign;
             pidsCtx.fillStyle = 0x111111;
-            pidsCtx.fillText(this.textContent, this.textPos[0] * 7.3 + 22, this.textPos[1] * 7.3 + 72);
+            pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier + 22, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 72);
         }
         pidsCtx.font = `${fontPrefix}${54 * this.textScale}px sans-serif`;
         pidsCtx.textAlign = this.textAlign;
         pidsCtx.fillStyle = this.textColor;
-        pidsCtx.fillText(this.textContent, this.textPos[0] * 7.3 + 20, this.textPos[1] * 7.3 + 70);
+        pidsCtx.fillText(this.textContent, this.textPos[0] * pidsSizes[pidsSizeMenu.value].multiplier + 20, this.textPos[1] * pidsSizes[pidsSizeMenu.value].multiplier + 70);
     }
 }
 const Text = {
@@ -573,13 +576,13 @@ class TextureObj {
         const [w, h] = this.textureSize;
 
         // Draw scaled image
-        pidsCtx.drawImage(img, x * 7.3 + 20, y * 7.3 + 40, w * 7.3, h * 7.3);
+        pidsCtx.drawImage(img, x * pidsSizes[pidsSizeMenu.value].multiplier + 20, y * pidsSizes[pidsSizeMenu.value].multiplier + 40, w * pidsSizes[pidsSizeMenu.value].multiplier, h * pidsSizes[pidsSizeMenu.value].multiplier);
 
         // Apply tint (skip if white = no tint)
         if (this.textureColor && this.textureColor !== "#ffffff") {
             pidsCtx.globalCompositeOperation = "source-atop";
             pidsCtx.fillStyle = this.textureColor;
-            pidsCtx.fillRect(x * 7.3 + 20, y * 7.3 + 40, w * 7.3, h * 7.3);
+            pidsCtx.fillRect(x * pidsSizes[pidsSizeMenu.value].multiplier + 20, y * pidsSizes[pidsSizeMenu.value].multiplier + 40, w * pidsSizes[pidsSizeMenu.value].multiplier, h * pidsSizes[pidsSizeMenu.value].multiplier);
             pidsCtx.globalCompositeOperation = "source-over";
         }
     }
