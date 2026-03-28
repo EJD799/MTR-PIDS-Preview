@@ -277,95 +277,99 @@ const pidsObj = {
     arrivals: function() {
         return {
             get: function(number) {
-                return {
-                    destination: function() {
-                        return pidsData.arrivals[number].destination;
-                    },
-                    arrivalTime: function() {
-                        return pidsData.arrivals[number].arrivalTime;
-                    },
-                    departureTime: function() {
-                        return pidsData.arrivals[number].departureTime;
-                    },
-                    deviation: function() {
-                        return null;
-                    },
-                    realtime: function() {
-                        return pidsData.arrivals[number].realtime;
-                    },
-                    departureIndex: function() {
-                        return 0;
-                    },
-                    terminating: function() {
-                        return pidsData.arrivals[number].terminating;
-                    },
-                    route: function() {
-                        return {
-                            getName: function() {
-                                return pidsData.arrivals[number].route.name;
-                            },
-                            getId: function() {
-                                return pidsData.arrivals[number].route.id;
-                            },
-                            getColor: function() {
-                                return pidsData.arrivals[number].route.color;
-                            },
-                            getCircularState: function() {
-                                return pidsData.arrivals[number].route.circularState;
-                            },
-                            getPlatforms: function() {
-                                return null;
-                            }
-                        };
-                    },
-                    routeId: function() {
-                        return pidsData.arrivals[number].route.id;
-                    },
-                    routeName: function() {
-                        return pidsData.arrivals[number].route.name;
-                    },
-                    routeNumber: function() {
-                        return pidsData.arrivals[number].route.number;
-                    },
-                    routeColor: function() {
-                        return pidsData.arrivals[number].route.color;
-                    },
-                    circularState: function() {
-                        return pidsData.arrivals[number].route.circularState;
-                    },
-                    platform: function() {
-                        return {
-                            getName: function() {
-                                return pidsData.arrivals[number].platform.name;
-                            },
-                            getId: function() {
-                                return pidsData.arrivals[number].platform.id;
-                            },
-                            getDwellTime: function() {
-                                return pidsData.arrivals[number].platform.dwellTime;
-                            }
-                        };
-                    },
-                    platformId: function() {
-                        return pidsData.arrivals[number].platform.id;
-                    },
-                    platformName: function() {
-                        return pidsData.arrivals[number].platform.name;
-                    },
-                    carCount: function() {
-                        return pidsData.arrivals[number].cars.length;
-                    },
-                    cars: function() {
-                        return pidsData.arrivals[number].cars.map(n => ({
-                            getVehicleId: function() {
-                                return n;
-                            },
-                            getOccupancy: function() {
-                                return 0;
-                            }
-                        }));
-                    }
-                };
+                if (number > pidsData.arrivals.length - 1) {
+                    return null;
+                } else {
+                    return {
+                        destination: function() {
+                            return pidsData.arrivals[number].destination;
+                        },
+                        arrivalTime: function() {
+                            return pidsData.arrivals[number].arrivalTime;
+                        },
+                        departureTime: function() {
+                            return pidsData.arrivals[number].departureTime;
+                        },
+                        deviation: function() {
+                            return null;
+                        },
+                        realtime: function() {
+                            return pidsData.arrivals[number].realtime;
+                        },
+                        departureIndex: function() {
+                            return 0;
+                        },
+                        terminating: function() {
+                            return pidsData.arrivals[number].terminating;
+                        },
+                        route: function() {
+                            return {
+                                getName: function() {
+                                    return pidsData.arrivals[number].route.name;
+                                },
+                                getId: function() {
+                                    return pidsData.arrivals[number].route.id;
+                                },
+                                getColor: function() {
+                                    return pidsData.arrivals[number].route.color;
+                                },
+                                getCircularState: function() {
+                                    return pidsData.arrivals[number].route.circularState;
+                                },
+                                getPlatforms: function() {
+                                    return null;
+                                }
+                            };
+                        },
+                        routeId: function() {
+                            return pidsData.arrivals[number].route.id;
+                        },
+                        routeName: function() {
+                            return pidsData.arrivals[number].route.name;
+                        },
+                        routeNumber: function() {
+                            return pidsData.arrivals[number].route.number;
+                        },
+                        routeColor: function() {
+                            return pidsData.arrivals[number].route.color;
+                        },
+                        circularState: function() {
+                            return pidsData.arrivals[number].route.circularState;
+                        },
+                        platform: function() {
+                            return {
+                                getName: function() {
+                                    return pidsData.arrivals[number].platform.name;
+                                },
+                                getId: function() {
+                                    return pidsData.arrivals[number].platform.id;
+                                },
+                                getDwellTime: function() {
+                                    return pidsData.arrivals[number].platform.dwellTime;
+                                }
+                            };
+                        },
+                        platformId: function() {
+                            return pidsData.arrivals[number].platform.id;
+                        },
+                        platformName: function() {
+                            return pidsData.arrivals[number].platform.name;
+                        },
+                        carCount: function() {
+                            return pidsData.arrivals[number].cars.length;
+                        },
+                        cars: function() {
+                            return pidsData.arrivals[number].cars.map(n => ({
+                                getVehicleId: function() {
+                                    return n;
+                                },
+                                getOccupancy: function() {
+                                    return 0;
+                                }
+                            }));
+                        }
+                    };
+                }
             },
             mixedCarLength: function() {
                 let mixed = false;
