@@ -84,6 +84,9 @@ pidsSizeMenu.addEventListener("change", function(e) {
     pidsCanvas.style.height = `${pidsSizes[pidsSizeMenu.value].css.h}px`;
     pidsCanvas.setAttribute("width", pidsSizes[pidsSizeMenu.value].canvas.w);
     pidsCanvas.setAttribute("height", pidsSizes[pidsSizeMenu.value].canvas.h);
+    resetPIDSData();
+    pidsObj.width = pidsData.width;
+    pidsObj.height = pidsData.height;
 });
 
 
