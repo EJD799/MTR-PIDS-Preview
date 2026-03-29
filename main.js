@@ -339,6 +339,10 @@ const pidsObj = {
                                             getDestination: function() {
                                                 return `Destination ${i}`;
                                             },
+                                            stationName: `Station ${i}`,
+                                            destination: `Destination ${i}`,
+                                            stationId: null,
+                                            platformId: i
                                         });
                                     }
                                     return platforms;
