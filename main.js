@@ -334,12 +334,12 @@ const pidsObj = {
                                                 return null;
                                             },
                                             getStationName: function() {
-                                                return `Station ${i}`;
+                                                return `Another Stop ${i}`;
                                             },
                                             getDestination: function() {
                                                 return `Destination ${i}`;
                                             },
-                                            stationName: `Station ${i}`,
+                                            stationName: `Another Stop ${i}`,
                                             destination: `Destination ${i}`,
                                             stationId: null,
                                             platformId: i
