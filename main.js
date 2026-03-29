@@ -761,6 +761,8 @@ const examplePIDS = [
 ];
 
 async function selectExamplePIDS(item) {
+    document.getElementById(`examplePIDSBtn${item}`).classList.add("is-loading");
+
     include(examplePIDS[item].js);
 
     for (let i = 0; i < examplePIDS[item].textures.length; i++) {
