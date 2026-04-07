@@ -32,6 +32,10 @@ Array.prototype.toArray = function() {
     return this;
 };
 
+Array.prototype.get = function(index) {
+    return this[index];
+}
+
 function importPackage(pack) {
 
 }
