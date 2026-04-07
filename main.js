@@ -459,6 +459,7 @@ const pidsObj = {
     width: pidsData.width,
     height: pidsData.height,
     rows: pidsData.rows,
+    type: pidsSizeMenu.value
 };
 
 function renderFrame() {
