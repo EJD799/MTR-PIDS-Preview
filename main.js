@@ -767,12 +767,24 @@ const examplePIDS = [
         pidsType: "rv_pids"
     },
     {
-        js: "pids/cta_pids.js",
+        js: "pids/wmata_pids_new.js",
         textures: [
-            "textures/us_pids_pack/cta_arrivalbox.png"
+            "textures/us_pids_pack/rectangle.png",
+            "textures/us_pids_pack/circle.png"
         ],
         textureNames: [
-            "textures/cta_arrivalbox.png"
+            "textures/rectangle.png",
+            "textures/circle.png"
+        ],
+        pidsType: "rv_pids"
+    },
+    {
+        js: "pids/cta_pids.js",
+        textures: [
+            "textures/us_pids_pack/rectangle.png"
+        ],
+        textureNames: [
+            "textures/rectangle.png"
         ],
         pidsType: "pids_1a"
     },
