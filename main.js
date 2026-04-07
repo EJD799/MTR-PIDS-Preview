@@ -111,6 +111,7 @@ pidsSizeMenu.addEventListener("change", function(e) {
     resetPIDSData();
     pidsObj.width = pidsData.width;
     pidsObj.height = pidsData.height;
+    pidsObj.type = pidsData.type;
 });
 
 
