@@ -177,6 +177,10 @@ function resetPIDSData() {
                     "sp1900_cab_1",
                     "sp1900_trailer",
                     "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
                     "sp1900_cab_2"
                 ]
             },
@@ -227,6 +231,10 @@ function resetPIDSData() {
                     "sp1900_cab_1",
                     "sp1900_trailer",
                     "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
                     "sp1900_cab_2"
                 ]
             },
@@ -275,6 +283,10 @@ function resetPIDSData() {
                 },
                 cars: [
                     "sp1900_cab_1",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
                     "sp1900_trailer",
                     "sp1900_trailer",
                     "sp1900_cab_2"
