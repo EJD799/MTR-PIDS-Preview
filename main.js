@@ -664,7 +664,7 @@ class TextureObj {
         return this;
     }
 
-    draw(ctx) {
+    /*draw(ctx) {
         const img = textureResources[this.texturePath];
         if (!img) return; // not loaded yet
 
@@ -681,6 +681,50 @@ class TextureObj {
             pidsCtx.fillRect(x * pidsSizes[pidsSizeMenu.value].multiplier, y * pidsSizes[pidsSizeMenu.value].multiplier, w * pidsSizes[pidsSizeMenu.value].multiplier, h * pidsSizes[pidsSizeMenu.value].multiplier);
             pidsCtx.globalCompositeOperation = "source-over";
         }
+    }*/
+
+    draw() {
+        const img = textureResources[this.texturePath];
+        if (!img) return;
+
+        const [x, y] = this.texturePos;
+        const [w, h] = this.textureSize;
+
+        const scale = pidsSizes[pidsSizeMenu.value].multiplier;
+
+        // Validate + compute final draw size
+        const dx = x * scale;
+        const dy = y * scale;
+        const dw = Math.max(1, Math.floor((w || img.width) * scale));
+        const dh = Math.max(1, Math.floor((h || img.height) * scale));
+
+        // If no tint, draw directly (fast path)
+        if (!this.textureColor || this.textureColor === "#ffffff") {
+            pidsCtx.drawImage(img, dx, dy, dw, dh);
+            return;
+        }
+
+        // Create offscreen canvas
+        const off = document.createElement("canvas");
+        off.width = dw;
+        off.height = dh;
+
+        const offCtx = off.getContext("2d");
+        if (!offCtx) return; // safety check
+
+        // Draw image
+        offCtx.drawImage(img, 0, 0, dw, dh);
+
+        // Apply tint ONLY to this image
+        offCtx.globalCompositeOperation = "source-atop";
+        offCtx.fillStyle = this.textureColor;
+        offCtx.fillRect(0, 0, dw, dh);
+
+        // Reset (good practice)
+        offCtx.globalCompositeOperation = "source-over";
+
+        // Draw final result to main canvas
+        pidsCtx.drawImage(off, dx, dy);
     }
 }
 const Texture = {
