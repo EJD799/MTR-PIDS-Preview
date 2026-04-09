@@ -68,6 +68,12 @@ const java = {
 const MinecraftClient = {
     worldDayTime: function() {
         return 6000;
+    },
+    worldIsRaining: function() {
+        return false;
+    },
+    worldIsThundering: function() {
+        return false;
     }
 };
 
