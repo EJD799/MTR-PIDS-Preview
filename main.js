@@ -3,25 +3,29 @@ bulmaSelectmenu.attachMenu(pidsSizeMenu);
 const pidsCtx = pidsCanvas.getContext('2d');
 
 function downloadCanvas(canvas) {
-  const ctx = canvas.getContext("2d");
-
-  // Save current drawing
-  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-
-  // Draw black background
-  ctx.globalCompositeOperation = "destination-over";
-  ctx.fillStyle = "black";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  // Export image
-  const link = document.createElement("a");
-  link.download = "canvas.png";
-  link.href = canvas.toDataURL("image/png");
-  link.click();
-
-  // Restore original canvas (remove the black background again)
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.putImageData(imageData, 0, 0);
+    const ctx = canvas.getContext("2d");
+    
+    // Save current drawing
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    
+    // Draw black background
+    ctx.globalCompositeOperation = "destination-over";
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Export image
+    const link = document.createElement("a");
+    link.download = "canvas.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+    
+    // Restore original canvas (remove the black background again)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.putImageData(imageData, 0, 0);
+    
+    window.setTimeout(function() {
+        pidsCanvas.setAttribute("width", pidsSizes[pidsSizeMenu.value].canvas.w);
+    }, 100);
 }
 
 function include(url) {
