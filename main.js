@@ -170,7 +170,7 @@ function resetPIDSData() {
                 terminating: false,
                 route: {
                     id: "",
-                    name: "Route Name",
+                    name: "Route 1",
                     number: "123",
                     color: 0xFF0000,
                     circularState: false
@@ -195,9 +195,9 @@ function resetPIDSData() {
                 terminating: false,
                 route: {
                     id: "",
-                    name: "Route Name",
+                    name: "Route 2",
                     number: "124",
-                    color: 0x0000FF,
+                    color: 0x00FF00,
                     circularState: false
                 },
                 platform: {
@@ -217,16 +217,16 @@ function resetPIDSData() {
                 ]
             },
             {
-                destination: "Station 1",
+                destination: "Station 3",
                 arrivalTime: Date.now() + 60000,
                 departureTime: Date.now() + 75000,
                 realtime: true,
                 terminating: false,
                 route: {
                     id: "",
-                    name: "Route Name",
-                    number: "123",
-                    color: 0xFF0000,
+                    name: "Route 3",
+                    number: "125",
+                    color: 0x0000FF,
                     circularState: false
                 },
                 platform: {
@@ -242,16 +242,16 @@ function resetPIDSData() {
                 ]
             },
             {
-                destination: "Station 2",
+                destination: "Station 4",
                 arrivalTime: Date.now() + 90000,
                 departureTime: Date.now() + 105000,
                 realtime: true,
                 terminating: false,
                 route: {
                     id: "",
-                    name: "Route Name",
-                    number: "124",
-                    color: 0x0000FF,
+                    name: "Route 4",
+                    number: "126",
+                    color: 0xFF00FF,
                     circularState: false
                 },
                 platform: {
@@ -265,6 +265,31 @@ function resetPIDSData() {
                     "sp1900_trailer",
                     "sp1900_trailer",
                     "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_cab_2"
+                ]
+            },
+            {
+                destination: "Station 5",
+                arrivalTime: Date.now() + 120000,
+                departureTime: Date.now() + 135000,
+                realtime: false,
+                terminating: false,
+                route: {
+                    id: "",
+                    name: "Route 5",
+                    number: "127",
+                    color: 0x00FFFF,
+                    circularState: false
+                },
+                platform: {
+                    id: "1",
+                    name: "1",
+                    dwellTime: 15000
+                },
+                cars: [
+                    "sp1900_cab_1",
                     "sp1900_trailer",
                     "sp1900_trailer",
                     "sp1900_cab_2"
@@ -272,13 +297,13 @@ function resetPIDSData() {
             },
             {
                 destination: "Station 1",
-                arrivalTime: Date.now() + 120000,
-                departureTime: Date.now() + 135000,
-                realtime: false,
+                arrivalTime: Date.now() + 150000,
+                departureTime: Date.now() + 165000,
+                realtime: true,
                 terminating: false,
                 route: {
                     id: "",
-                    name: "Route Name",
+                    name: "Route 1",
                     number: "123",
                     color: 0xFF0000,
                     circularState: false
@@ -297,15 +322,15 @@ function resetPIDSData() {
             },
             {
                 destination: "Station 2",
-                arrivalTime: Date.now() + 150000,
-                departureTime: Date.now() + 165000,
-                realtime: false,
+                arrivalTime: Date.now() + 180000,
+                departureTime: Date.now() + 195000,
+                realtime: true,
                 terminating: false,
                 route: {
                     id: "",
-                    name: "Route Name",
+                    name: "Route 2",
                     number: "124",
-                    color: 0x0000FF,
+                    color: 0x00FF00,
                     circularState: false
                 },
                 platform: {
@@ -323,7 +348,86 @@ function resetPIDSData() {
                     "sp1900_trailer",
                     "sp1900_cab_2"
                 ]
-            }
+            },
+            {
+                destination: "Station 3",
+                arrivalTime: Date.now() + 210000,
+                departureTime: Date.now() + 225000,
+                realtime: true,
+                terminating: false,
+                route: {
+                    id: "",
+                    name: "Route 3",
+                    number: "125",
+                    color: 0x0000FF,
+                    circularState: false
+                },
+                platform: {
+                    id: "1",
+                    name: "1",
+                    dwellTime: 15000
+                },
+                cars: [
+                    "sp1900_cab_1",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_cab_2"
+                ]
+            },
+            {
+                destination: "Station 4",
+                arrivalTime: Date.now() + 240000,
+                departureTime: Date.now() + 255000,
+                realtime: true,
+                terminating: false,
+                route: {
+                    id: "",
+                    name: "Route 4",
+                    number: "126",
+                    color: 0xFF00FF,
+                    circularState: false
+                },
+                platform: {
+                    id: "1",
+                    name: "1",
+                    dwellTime: 15000
+                },
+                cars: [
+                    "sp1900_cab_1",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_cab_2"
+                ]
+            },
+            {
+                destination: "Station 5",
+                arrivalTime: Date.now() + 270000,
+                departureTime: Date.now() + 285000,
+                realtime: false,
+                terminating: false,
+                route: {
+                    id: "",
+                    name: "Route 5",
+                    number: "127",
+                    color: 0x00FFFF,
+                    circularState: false
+                },
+                platform: {
+                    id: "1",
+                    name: "1",
+                    dwellTime: 15000
+                },
+                cars: [
+                    "sp1900_cab_1",
+                    "sp1900_trailer",
+                    "sp1900_trailer",
+                    "sp1900_cab_2"
+                ]
+            },
         ]
     };
 }
